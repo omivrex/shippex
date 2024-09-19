@@ -1,7 +1,8 @@
-import { GestureResponderEvent, Pressable, StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
+import { GestureResponderEvent, Pressable, StyleProp, StyleSheet, Text, TextStyle, View, ViewStyle } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 import colors from "../constants/colors.constants";
 import { ReactNode } from "react";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 type props = {
     text: string;
@@ -10,10 +11,10 @@ type props = {
     leftIcon?: ReactNode;
     isDisabled?: boolean;
     isLoading?: boolean;
-    color?: string;
+    textStyles?: StyleProp<TextStyle>;
 };
 
-export const LargeButton = ({ text, onPress, styles, leftIcon, isDisabled, isLoading }: props) => {
+export const LargeButton = ({ text, onPress, styles, leftIcon, isDisabled, isLoading, textStyles }: props) => {
     return (
         <Pressable onPress={isDisabled ? undefined : onPress} style={[defaultStyles.button, styles, isDisabled && { backgroundColor: colors.disabled }]}>
             {isLoading ? (
@@ -21,7 +22,7 @@ export const LargeButton = ({ text, onPress, styles, leftIcon, isDisabled, isLoa
             ) : (
                 <>
                     {leftIcon && <View style={{ marginLeft: 12 }}>{leftIcon}</View>}
-                    <Text style={[defaultStyles.buttonText, isDisabled && { color: colors.disabledText }]}>{text}</Text>
+                    <Text style={[defaultStyles.buttonText, textStyles, isDisabled && { color: colors.disabledText }]}>{text}</Text>
                 </>
             )}
         </Pressable>
@@ -41,7 +42,7 @@ const defaultStyles = StyleSheet.create({
     button: {
         borderRadius: 10,
         backgroundColor: colors.background,
-        width: "90%",
+        width: wp("90%"),
         height: 56,
         overflow: "hidden",
         paddingHorizontal: 14,
