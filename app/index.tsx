@@ -9,7 +9,7 @@ import { LargeButton } from "../components/buttons.component";
 const startupAnimation = require("../assets/spash-anim.json");
 
 export default function App() {
-    const [showLoginFrame, setshowLoginFrame] = useState<boolean>(false);
+    const [showLoginFrame, setShowLoginFrame] = useState<boolean>(false);
     return (
         <SafeAreaView>
             <LottieView
@@ -18,7 +18,7 @@ export default function App() {
                 autoPlay
                 loop={false}
                 resizeMode="cover"
-                onAnimationFinish={() => setshowLoginFrame(true)}
+                onAnimationFinish={() => setShowLoginFrame(true)}
             />
             {showLoginFrame && (
                 <View
