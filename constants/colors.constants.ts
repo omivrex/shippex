@@ -6,6 +6,7 @@ const colors = {
     disabledText: "#A7A3B3",
     textColor1: "#757281",
     inputBackground: "#F4F2F880",
+    bluredTabIcon: "#A7A3B3",
 };
 
 export default colors;

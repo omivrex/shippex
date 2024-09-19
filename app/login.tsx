@@ -3,7 +3,6 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import { AntDesign } from "@expo/vector-icons";
 import colors from "../constants/colors.constants";
 import { router } from "expo-router";
-import { TextInput } from "react-native-paper";
 import { LargeButton } from "../components/buttons.component";
 import { CustomTextInput } from "../components/inputs.component";
 import { useState } from "react";
