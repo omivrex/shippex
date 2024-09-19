@@ -41,7 +41,7 @@ function Login() {
                     isDisabled={!(url && username && password)}
                     textStyles={{ color: colors.background }}
                     styles={{ width: "100%", backgroundColor: colors.primary }}
-                    onPress={() => router.push("login")}
+                    onPress={() => router.replace("Shipments")}
                     text="Login"
                 />
             </View>
