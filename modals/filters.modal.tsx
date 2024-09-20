@@ -5,15 +5,14 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import { Button, Text } from "react-native-paper";
 import colors from "../constants/colors.constants";
 import { useBottomSheetContext } from "../contexts/bottomsheet.context";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const FilterModal = () => {
     const bottomSheetRef = useRef<BottomSheet>(null);
     const bottomsheetContext = useBottomSheetContext();
 
     return (
-        <Pressable onPress={() => bottomsheetContext?.setIsBottomSheetOpen(false)}>
-            <BottomSheet snapPoints={["35%"]} ref={bottomSheetRef}>
+        <View style={styles.container}>
+            <BottomSheet snapPoints={["35%"]} onChange={(index) => index === 1 && bottomsheetContext?.setIsBottomSheetOpen(false)} ref={bottomSheetRef}>
                 <View style={styles.contentContainer}>
                     <View
                         style={{
@@ -25,7 +24,6 @@ const FilterModal = () => {
                             borderColor: "#eae7f2",
                             borderBottomWidth: 2,
                             height: hp("4%"),
-                            // backgroundColor: "blue",
                         }}
                     >
                         <Button
@@ -135,7 +133,7 @@ const FilterModal = () => {
                     </View>
                 </View>
             </BottomSheet>
-        </Pressable>
+        </View>
     );
 };
 

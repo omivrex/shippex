@@ -7,8 +7,10 @@ const colors = {
     textColor1: "#757281",
     inputBackground: "#F4F2F880",
     bluredTabIcon: "#A7A3B3",
-    grey: '#58536E',
-    grey2: '#F4F2F8'
+    grey: "#58536E",
+    grey2: "#F4F2F8",
+    green: "#25D366",
+    error: "#C12F2F",
 };
 
 export default colors;

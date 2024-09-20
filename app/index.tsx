@@ -8,6 +8,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import * as SplashScreen from "expo-splash-screen";
 import { LargeButton } from "../components/buttons.component";
 import { useFonts } from "expo-font";
+
 // const startupAnimation = require("../assets/animation/spash-anim.json");
 const startupAnimation = require("../assets/animation/spash-anim.mp4");
 

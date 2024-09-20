@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { AntDesign } from "@expo/vector-icons";
 import colors from "../constants/colors.constants";
@@ -6,11 +6,24 @@ import { router } from "expo-router";
 import { LargeButton } from "../components/buttons.component";
 import { CustomTextInput } from "../components/inputs.component";
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { login } from "../apis/auth.apis";
+import { Text } from "react-native-paper";
 
 function Login() {
     const [url, setUrl] = useState<string>("");
-    const [username, setUsername] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState<string>("");
+
+    const { isPending, mutate } = useMutation({
+        mutationFn: () => login("https://" + url.trim().toLowerCase(), email.toLowerCase().trim(), password),
+        onSuccess: (data) => {
+            data && router.push("Shipments");
+        },
+        onError: (error) => setError(error.message),
+    });
+
     return (
         <View style={styles.container}>
             <Pressable onPress={router.back} style={{ flexDirection: "row", gap: 2.5, alignItems: "center" }}>
@@ -21,28 +34,24 @@ function Login() {
                 <Text style={styles.title}>Login</Text>
                 <Text style={styles.description}>Please enter your First, Last name and your phone number in order to register</Text>
                 <View style={styles.inputContainer}>
-                    <CustomTextInput
-                        onChange={(value) => setUrl(value)}
-                        textColor={colors.primary}
-                        leftText={'https://'}
-                        label="URL"
-                        keyboardType="url"
-                    />
-                    <CustomTextInput
-                        keyboardType="email-address"
-                        onChange={(value) => setUsername(value)}
-                        textColor={colors.primary}
-                        label="Username / Email"
-                    />
+                    <CustomTextInput onChange={(value) => setUrl(value)} textColor={colors.primary} leftText={"https://"} label="URL" keyboardType="url" />
+                    <CustomTextInput keyboardType="email-address" onChange={(value) => setEmail(value)} textColor={colors.primary} label="Username / Email" />
                     <CustomTextInput onChange={(value) => setPassword(value)} textColor={colors.primary} label="Password" secureTextEntry />
+                    {error && (
+                        <View style={styles.errorContainer}>
+                            <AntDesign name="exclamationcircleo" size={hp("1.7%")} color={colors.error} />
+                            <Text style={{ color: colors.error }}>{error}</Text>
+                        </View>
+                    )}
                 </View>
 
                 <LargeButton
-                    isDisabled={!(url && username && password)}
+                    isDisabled={!(url && email && password)}
                     textStyles={{ color: colors.background }}
                     styles={{ width: "100%", backgroundColor: colors.primary }}
-                    onPress={() => router.replace("Shipments")}
+                    onPress={() => mutate()}
                     text="Login"
+                    isLoading={isPending}
                 />
             </View>
         </View>
@@ -101,6 +110,12 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         gap: 30,
         flex: 1,
+    },
+
+    errorContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
     },
 });
 
