@@ -1,4 +1,3 @@
-import { AuthData } from "../types/auth.types";
 import { ShipmentType } from "../types/shipment.types";
 import { client } from "./axios.config";
 
