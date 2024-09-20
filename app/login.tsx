@@ -24,8 +24,9 @@ function Login() {
                     <CustomTextInput
                         onChange={(value) => setUrl(value)}
                         textColor={colors.primary}
-                        left={<Text style={{ color: "#58536E", fontSize: hp("1.5%") }}>https://</Text>}
+                        leftText={'https://'}
                         label="URL"
+                        keyboardType="url"
                     />
                     <CustomTextInput
                         keyboardType="email-address"
