@@ -56,7 +56,7 @@ export default function App() {
                 <View style={styles.comntainer}>
                     <View />
                     <Image source={require("../assets/images/brand_name.png")} />
-                    <LargeButton onPress={() => router.push("Shipments")} text="Login" />
+                    <LargeButton onPress={() => router.push("login")} text="Login" />
                 </View>
             )}
         </SafeAreaView>
