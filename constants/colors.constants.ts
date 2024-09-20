@@ -11,6 +11,7 @@ const colors = {
     grey2: "#F4F2F8",
     green: "#25D366",
     error: "#C12F2F",
+    lightBlue: "#D9E6FD",
 };
 
 export default colors;

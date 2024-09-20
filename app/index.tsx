@@ -19,6 +19,7 @@ export default function App() {
         "SF Pro Text": require("../assets/fonts/sf-pro-text-regular.ttf"),
         "Inter-Medium": require("../assets/fonts/Inter-VariableFont_opsz,wght.ttf"),
         "Inter-Regular": require("../assets/fonts/Inter-VariableFont_opsz,wght.ttf"),
+        "Inter-Bold": require("../assets/fonts/Inter-VariableFont_opsz,wght.ttf"),
     });
     const [showLoginFrame, setShowLoginFrame] = useState<boolean>(false);
 
@@ -55,7 +56,7 @@ export default function App() {
                 <View style={styles.comntainer}>
                     <View />
                     <Image source={require("../assets/images/brand_name.png")} />
-                    <LargeButton onPress={() => router.push("login")} text="Login" />
+                    <LargeButton onPress={() => router.push("Shipments")} text="Login" />
                 </View>
             )}
         </SafeAreaView>

@@ -26,23 +26,13 @@ const FilterModal = () => {
                             height: hp("4%"),
                         }}
                     >
-                        <Button
-                            onPress={() => bottomsheetContext?.setIsBottomSheetOpen(false)}
-                            labelStyle={{ fontFamily: "Inter-Medium", fontWeight: "500", fontSize: hp("1.6%") }}
-                            textColor={colors.primary}
-                            rippleColor={"transparent"}
-                        >
-                            Cancel
-                        </Button>
+                        <Pressable onPress={() => bottomsheetContext?.setIsBottomSheetOpen(false)}>
+                            <Text style={{ fontFamily: "Inter-Medium", fontWeight: "500", fontSize: hp("1.6%"), color: colors.primary }}>Close</Text>
+                        </Pressable>
                         <Text style={{ fontFamily: "SF Pro", fontWeight: "600", fontSize: hp("1.8%") }}>Filters</Text>
-                        <Button
-                            onPress={() => bottomsheetContext?.setIsBottomSheetOpen(false)}
-                            labelStyle={{ fontFamily: "Inter-Medium", fontWeight: "500", fontSize: hp("1.6%") }}
-                            textColor={colors.primary}
-                            rippleColor={"transparent"}
-                        >
-                            Done
-                        </Button>
+                        <Pressable onPress={() => bottomsheetContext?.setIsBottomSheetOpen(false)}>
+                            <Text style={{ fontFamily: "Inter-Medium", fontWeight: "500", fontSize: hp("1.6%"), color: colors.primary }}>Done</Text>
+                        </Pressable>
                     </View>
                     <View>
                         <View style={{ width: wp("100%"), marginVertical: "3%", paddingHorizontal: "5%" }}>

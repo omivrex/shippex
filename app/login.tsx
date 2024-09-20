@@ -19,7 +19,7 @@ function Login() {
     const { isPending, mutate } = useMutation({
         mutationFn: () => login("https://" + url.trim().toLowerCase(), email.toLowerCase().trim(), password),
         onSuccess: (data) => {
-            data && router.push("Shipments");
+            data && router.replace("Shipments");
         },
         onError: (error) => setError(error.message),
     });
