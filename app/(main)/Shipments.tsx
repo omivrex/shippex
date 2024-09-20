@@ -26,7 +26,7 @@ function Shipments() {
                 <NotificationIcon />
             </View>
             <View style={{ paddingHorizontal: "5%", marginVertical: "2.5%" }}>
-                <Text style={{ color: "rgba(0, 0, 0, 0.6)", fontFamily: "SF pro" }} variant="titleSmall">
+                <Text style={{ color: "rgba(0, 0, 0, 0.6)", fontFamily: "SF Pro" }} variant="titleSmall">
                     Hello,
                 </Text>
                 <Text style={{ fontFamily: "SF Pro", fontWeight: "600" }} variant="headlineMedium">

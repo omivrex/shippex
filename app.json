@@ -27,7 +27,13 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/SFPRODISPLAYBOLD.otf", "./assets/fonts/SFPRODISPLAYMEDIUM.otf", "./assets/fonts/SFPRODISPLAYREGULAR.otf", "./assets/fonts/Inter-VariableFont_opsz,wght.ttf", "./assets/fonts/sf-pro-text-regular.ttf"]
+        }
+      ]
     ],
     "extra": {
       "router": {
