@@ -21,7 +21,7 @@ type props = {
     placeholderTextColor?: string;
     multiLine?: boolean;
     keyboardType?: KeyboardTypeOptions;
-    onChange: (text: string) => void;
+    onChange?: (text: string) => void;
     onFocus?: () => void;
 };
 

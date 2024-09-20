@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, TextComponent, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import colors from "../../constants/colors.constants";
@@ -12,8 +12,12 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import { Checkbox, Text } from "react-native-paper";
 import { ShortButton } from "../../components/buttons.component";
 import { CustomSearchInput, CustomTextInput } from "../../components/inputs.component";
+import FilterModal from "../../modals/filters.modal";
+import { useBottomSheetContext } from "../../contexts/bottomsheet.context";
 
 function Shipments() {
+    const bottomsheetContext = useBottomSheetContext();
+
     return (
         <SafeAreaView style={{ backgroundColor: colors.background, height: hp("100%"), width: wp("100%") }}>
             <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "100%", paddingHorizontal: "5%" }}>
@@ -38,6 +42,7 @@ function Shipments() {
                     textStyles={{ color: colors.grey, fontSize: hp("1.6%"), lineHeight: 22, fontFamily: "Inter-Regular" }}
                     leftIcon={<FilterIcon color={colors.grey} />}
                     text="Filters"
+                    onPress={() => bottomsheetContext?.setIsBottomSheetOpen(true)}
                 />
                 <ShortButton
                     styles={{ backgroundColor: colors.primary, width: wp("43%") }}
@@ -66,6 +71,7 @@ function Shipments() {
                     </Text>
                 </View>
             </View>
+            {bottomsheetContext?.isBottomSheetOpen && <FilterModal />}
         </SafeAreaView>
     );
 }
