@@ -2,12 +2,6 @@
 
 Shippex is a React Native app built with Expo for managing shipments efficiently.
 
-## Features
-
--   Manage and track shipments
--   Easy-to-use interface
--   Responsive and fast
-
 ## Installation
 
 To get started with Shippex, follow the instructions below:
